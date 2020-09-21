@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+"""
+本代码主要使用MinHash算法实现文章查重功能，以下是对MinHash算法的简介
+MinHash算法是LSH(Locality Sensitive Hashing，局部敏感哈希)中的一种，主要用来判断两个集合之间的相似性，适用于数据量大的集合
+MinHash算法的实现流程一般为，将文档划分成子字符串，再利用哈希函数构建签名，最后对比签名从而获得相似度
+"""
+
 
 # 正则包
 import re
@@ -9,11 +15,11 @@ import jieba.analyse
 import html
 # 数据集处理包
 from datasketch import MinHash
-import sys # 从命令行获取参数包
+import sys   # 从命令行获取参数包
 
 class MinHashSimilarity(object):
     """
-    MinHash
+    MinHash算法
     """
     def __init__(self, content_x1, content_y2):
         self.s1 = content_x1
